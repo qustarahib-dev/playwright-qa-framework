@@ -15,6 +15,7 @@ UI and API test automation built with Playwright and TypeScript, running in CI o
 - `tests/a11y/` - accessibility checks (axe)
 - `tests/mobile/` - mobile viewport tests (Pixel 7 emulation)
 - `tests/db/` - API + database tests (registration verified in Postgres)
+- `tests/conduit/` - authentication tests with negative cases (wrong password, missing token, duplicate email)
 - `fixtures/` - shared fixtures (logged-in session)
 - `.github/workflows/` - CI pipeline
 
