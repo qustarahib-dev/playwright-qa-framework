@@ -42,3 +42,12 @@ Every push runs the full suite on GitHub Actions and uploads the HTML report as 
 ## Planned next
 - Shared login fixture to remove repeated setup
 - Local app in Docker with database-level assertions
+
+## Running subsets
+- `npm test` runs the full suite
+- `npm run test:smoke` runs the fast `@smoke` subset (login, booking lifecycle, registration with DB check)
+
+## Failure diagnostics
+- CI retries failures twice and records a trace on the first retry
+- Screenshots and video are kept for failed tests
+- CI annotates failures directly on the commit
