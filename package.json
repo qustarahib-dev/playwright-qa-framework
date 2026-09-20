@@ -1,0 +1,23 @@
+{
+  "name": "playwright-qa-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qustarahib-dev/playwright-qa-framework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/qustarahib-dev/playwright-qa-framework/issues"
+  },
+  "homepage": "https://github.com/qustarahib-dev/playwright-qa-framework#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.2"
+  }
+}
