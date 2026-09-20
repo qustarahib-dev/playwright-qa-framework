@@ -1,5 +1,7 @@
 # Playwright QA Framework
 
+![Playwright Tests](https://github.com/qustarahib-dev/playwright-qa-framework/actions/workflows/playwright.yml/badge.svg)
+
 UI and API test automation built with Playwright and TypeScript, running in CI on GitHub Actions.
 
 ## Targets
@@ -12,6 +14,7 @@ UI and API test automation built with Playwright and TypeScript, running in CI o
 - `tests/api/` - API tests (booking create/read/delete)
 - `tests/a11y/` - accessibility checks (axe)
 - `tests/mobile/` - mobile viewport tests (Pixel 7 emulation)
+- `tests/db/` - API + database tests (registration verified in Postgres)
 - `fixtures/` - shared fixtures (logged-in session)
 - `.github/workflows/` - CI pipeline
 
