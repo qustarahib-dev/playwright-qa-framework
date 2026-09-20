@@ -47,3 +47,5 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: playwright-report-${{ strategy.job-index }}
+          path: playwright-report/
+          retention-days: 30
