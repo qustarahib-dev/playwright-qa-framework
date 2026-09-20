@@ -5,7 +5,7 @@ test.use({ baseURL: 'http://localhost:4000' });
 
 const dbConfig = {
   host: 'localhost',
-  port: 35432,
+  port: Number(process.env.DB_PORT ?? 35432),
   user: 'admin',
   password: 'secret',
   database: 'realworld-backend-app',

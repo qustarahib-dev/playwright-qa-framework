@@ -28,7 +28,7 @@ jobs:
           echo "JWT_SECRET=R4nLO7gmmmGt1kTEWtrw" >> .env
           echo "DB_USERNAME=admin" >> .env
           echo "DB_PASSWORD=secret" >> .env
-          echo "DB_PORT=35432" >> .env
+          echo "DB_PORT=5433" >> .env
           echo "DB_NAME=realworld-backend-app" >> .env
           echo "PGADMIN_EMAIL=admin@example.com" >> .env
           echo "PGADMIN_PASSWORD=secret" >> .env
@@ -42,7 +42,7 @@ jobs:
           exit 1
       - run: npm ci
       - run: npx playwright install --with-deps
-      - run: npx playwright test --shard=${{ matrix.shard }}
+      - run: DB_PORT=5433 npx playwright test --shard=${{ matrix.shard }}
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
