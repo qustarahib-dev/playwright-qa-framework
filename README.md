@@ -10,6 +10,9 @@ UI and API test automation built with Playwright and TypeScript, running in CI o
 - `pages/` - page objects (`LoginPage`, `InventoryPage`)
 - `tests/ui/` - UI tests (login, cart)
 - `tests/api/` - API tests (booking create/read/delete)
+- `tests/a11y/` - accessibility checks (axe)
+- `tests/mobile/` - mobile viewport tests (Pixel 7 emulation)
+- `fixtures/` - shared fixtures (logged-in session)
 - `.github/workflows/` - CI pipeline
 
 ## Running locally
@@ -25,12 +28,13 @@ npx playwright show-report
 - **UI tests** run across Chromium, Firefox, and WebKit to catch cross-browser differences.
 - **API tests** cover the full lifecycle (auth, create, read, delete, verify deleted) rather than single endpoints in isolation.
 - **Page objects** keep locators in one place, so UI changes need one fix, not many.
-- **Not automated yet:** visual checks, performance, and accessibility.
+- **Accessibility:** axe scan of the login page, failing on critical and serious WCAG violations.
+- **Mobile:** login flow on an emulated Pixel 7 viewport.
+- **Not automated yet:** visual checks and performance.
 
 ## CI
 Every push runs the full suite on GitHub Actions and uploads the HTML report as an artifact.
 
 ## Planned next
 - Shared login fixture to remove repeated setup
-- Accessibility checks with axe
 - Local app in Docker with database-level assertions
