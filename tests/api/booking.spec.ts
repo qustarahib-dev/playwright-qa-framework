@@ -15,7 +15,7 @@ const booking = {
 };
 
 test.describe('Restful-Booker API', () => {
-  test('create, read, and delete a booking', async ({ request }) => {
+  test('create, read, and delete a booking @smoke', async ({ request }) => {
     const auth = await request.post('/auth', {
       data: { username: 'admin', password: 'password123' },
     });

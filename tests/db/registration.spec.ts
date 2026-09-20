@@ -27,7 +27,7 @@ test.describe('User registration (API + database)', () => {
     await db.end();
   });
 
-  test('registering a user creates a row with a hashed password', async ({ request }) => {
+  test('registering a user creates a row with a hashed password @smoke', async ({ request }) => {
     const res = await request.post('/api/users', {
       data: { user: { username, email, password } },
     });
