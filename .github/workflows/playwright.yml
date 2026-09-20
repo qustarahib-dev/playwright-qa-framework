@@ -20,6 +20,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - name: Start backend and database
+        run: |
+          git clone https://github.com/mjftw/typescript-realworld-backend.git ../backend
+          cd ../backend
+          echo "APP_PORT=4000" >> .env
+          echo "JWT_SECRET=R4nLO7gmmmGt1kTEWtrw" >> .env
+          echo "DB_USERNAME=admin" >> .env
+          echo "DB_PASSWORD=secret" >> .env
+          echo "DB_PORT=35432" >> .env
+          echo "DB_NAME=realworld-backend-app" >> .env
+          echo "PGADMIN_EMAIL=admin@example.com" >> .env
+          echo "PGADMIN_PASSWORD=secret" >> .env
+          echo "PGADMIN_PORT=5050" >> .env
+          docker compose up -d --build realworld-backend-app postgres
+          for i in $(seq 1 30); do
+            curl -s -o /dev/null http://localhost:4000/api/articles && exit 0
+            sleep 2
+          done
+          docker compose logs
+          exit 1
       - run: npm ci
       - run: npx playwright install --with-deps
       - run: npx playwright test --shard=${{ matrix.shard }}
@@ -27,5 +47,3 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: playwright-report-${{ strategy.job-index }}
-          path: playwright-report/
-          retention-days: 30
