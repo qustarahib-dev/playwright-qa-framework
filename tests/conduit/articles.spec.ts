@@ -3,15 +3,16 @@ import { test, expect } from '@playwright/test';
 test.use({ baseURL: 'http://localhost:4000' });
 
 test.describe.serial('Conduit articles', () => {
-  const email = 'qusta_test@example.com';
+  const username = `articles_${Date.now()}`;
+  const email = `${username}@example.com`;
   const password = 'Passw0rd!';
   const title = `Test Article ${Date.now()}`;
   let token = '';
   let slug = '';
 
   test.beforeAll(async ({ request }) => {
-    const res = await request.post('/api/users/login', {
-      data: { user: { email, password } },
+    const res = await request.post('/api/users', {
+      data: { user: { username, email, password } },
     });
     token = (await res.json()).user.token;
   });
